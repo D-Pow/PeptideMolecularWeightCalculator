@@ -47,7 +47,6 @@ def calculate(string):
             total += 124.1394
         elif letter == 'B' or letter == 'b':
             total += 243.1533
-        #print 'Peptide is:', letter, 'Total is:', total
     return total
 
 def main():
@@ -55,25 +54,17 @@ def main():
 If it includes taurine, Yp, or the ester compound:
 write "Z" for taurine, "B" for Yp, and "X" for ester.\n''')
     if peptide[0:3] == 'Nap' or peptide[0:3] == 'nap':
-        #print 'Pre is:', peptide[0:3], 'Post is:', peptide[3:]
         total = calculate(peptide[3:])
         total += 169.2021
     elif peptide[0:4] == 'Fmoc' or peptide[0:4] == 'fmoc':
-        #print 'Pre is:', peptide[0:4], 'Post is:', peptide[4:]
         total = calculate(peptide[4:])
         total += 223.2499
     else:
-        #print 'Protein is:', peptide
         total = calculate(peptide)
         total += 1.0079
-    #print 'Last is:', peptide[-1]
     total += 17.0069
-    #print 'OH was added'
     if peptide[-1] == 'Z' or peptide[-1] == 'z':
-        #print 'I will remove OH'
-        #print 'Total before:', total
         total = total - 17.0069
-        #print 'Total after:', total
     print 'Molecular weight is:', total, 'g/mol\n'
     another = raw_input('Want to find another compound? Y/N\n')
     if another == 'Y' or another == 'y':
